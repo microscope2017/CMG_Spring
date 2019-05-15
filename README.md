@@ -29,3 +29,11 @@ r_time char(5)
 자기소개서 localhost/introduce  
 프로젝트 localhost/project  
 게시판 localhost/board  
+  
+###View  
+메인 index.jsp  
+이력서 resume.jsp  
+자기소개서 introduce.jsp  
+프로젝트 project.jsp  
+게시판 list.jsp  
+회원가입 signup.jsp  
