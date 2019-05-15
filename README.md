@@ -1,6 +1,6 @@
 # CMG_Spring
 
-1. Database Schema(Oracle)  
+###Database Schema(Oracle)  
 -member(회원정보)  
 m_num number(3) primary key  
 m_email  varchar2(30)  
@@ -23,7 +23,7 @@ r_date char(10)
 r_time char(5)  
    
   
-2. Path  
+###Path  
 메인 localhost  
 이력서 localhost/resume  
 자기소개서 localhost/introduce  
