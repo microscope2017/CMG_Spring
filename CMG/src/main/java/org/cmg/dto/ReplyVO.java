@@ -1,5 +1,5 @@
 package org.cmg.dto;
-
+ 
 public class ReplyVO {
 	private int r_id;
 	private int b_id;
