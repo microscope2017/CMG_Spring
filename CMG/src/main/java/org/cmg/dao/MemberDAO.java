@@ -4,4 +4,5 @@ import org.cmg.dto.MemberVO;
 
 public interface MemberDAO {
 	public void register(MemberVO memberVO) throws Exception;
+	public MemberVO login(String pw) throws Exception;
 }

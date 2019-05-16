@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
@@ -57,8 +58,9 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/signin", method = RequestMethod.POST)
-	public String signin(Locale locale, Model model) throws Exception{
-		
+	public String signin(@RequestParam("m_pw") String pw, @RequestParam("m_email") String email, RedirectAttributes rttr) throws Exception{
+		if(pw.equals(service.login(email))) {rttr.addFlashAttribute("msg", "LoginSuccess");}
+		else rttr.addFlashAttribute("msg", "LoginFail");
 		return "redirect:/";
 	}
 }

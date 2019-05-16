@@ -17,4 +17,9 @@ public class MemberDAOImpl implements MemberDAO{
 		session.insert(namespace+".register", memberVO);
 	}
 
+	@Override
+	public MemberVO login(String pw) throws Exception {
+		return session.selectOne(namespace+".login",pw);
+	}
+
 }

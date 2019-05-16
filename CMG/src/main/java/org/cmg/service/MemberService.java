@@ -6,4 +6,5 @@ import org.springframework.stereotype.Service;
 @Service
 public interface MemberService {
 	public void register(MemberVO memberVO) throws Exception;
+	public String login(String pw) throws Exception;
 }

@@ -14,5 +14,10 @@ public class MemberServiceImpl implements MemberService {
 	public void register(MemberVO memberVO) throws Exception {
 		memberDAO.register(memberVO);
 	}
+	
+	@Override
+	public String login(String pw) throws Exception {
+		return memberDAO.login(pw).getM_pw();
+	}
 
 }
