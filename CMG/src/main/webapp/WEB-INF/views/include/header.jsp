@@ -5,9 +5,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Aperitif - Custom Template</title>
+	<title>CMG - Spring Web</title>
 
 	<link rel="stylesheet" href="resources/css/style.min.css">
 	<link rel="stylesheet" href="resources/css/modules.css">
@@ -50,16 +50,34 @@
 </head>
 
 <body class="modern">
-
-<header class="MOD_HEADER3">  
+<header class="MOD_HEADER3">
+  <div class="MOD_HEADER3_SocialBarContainer">
+  	<div data-layout="_r" class="MOD_HEADER3_SocialBar">
+    	<div class="MOD_HEADER3_SocialIcons"></div>
+    	<form role="form" action='signin' method="post">
+  		<div class="MOD_HEADER3_Contact">
+	    <div class="textbox">
+			    <i class="fas fa-user"></i>
+			    <input name='m_email' type="text" placeholder="Username">
+		</div>
+		<div class="textbox">
+			    <i class="fas fa-lock"></i>
+			    <input name='m_pw' type="password" placeholder="Password">
+		</div>
+		<button class="btnin" type = "submit">SIGN IN</button>
+		<button type="button" class="btnup" onclick="location.href='/signup'">SIGN UP</button>
+	    </div>
+	    </form>
+    </div>
+  </div>
   <div data-layout="_r">
     <div data-layout="al16">
-      <img class="MOD_HEADER3_Logo" alt="Company name" src="https://unsplash.it/300/100/?random">
+      <img class="MOD_HEADER3_Logo" alt="Company name" src="https://unsplash.it/300/100/?random" onclick="location.href='/'">
       <p class="MOD_HEADER3_Slogan" data-theme="_ts2_bb1">Company slogan, byline or additional message</p>
     </div>
   </div>
 </header>
-
+<form>
 <section class="MOD_MENU" data-theme="_bgp">
   <div data-layout="_r" class="nopadding">
     <nav class="MOD_MENU_Nav">
@@ -75,7 +93,7 @@
           <a href="/project" data-theme="_bgp">프로젝트</a>
           <ul>
             <li>
-              <a href="#" data-theme="_bgpd">SPRING</a>
+              <a href="https://github.com/microscope2017/CMG_Spring" data-theme="_bgpd">SPRING</a>
             </li>
             <li>
               <a href="#" data-theme="_bgpd">NODE.JS</a>
@@ -86,9 +104,10 @@
           </ul>
         </li>
         <li>
-          <a href="#" data-theme="_bgp">게시판</a>
+          <a href="/board" data-theme="_bgp">게시판</a>
         </li>
       </ul>
     </nav>
   </div>
 </section>
+</form>

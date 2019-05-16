@@ -1,4 +1,4 @@
-package org.cmg.springproj;
+package org.cmg.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -11,17 +11,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-/**
- * Handles requests for the application home page.
- */
 @Controller
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("index........");
@@ -38,5 +32,20 @@ public class HomeController {
 	
 	@RequestMapping(value = "/project", method = RequestMethod.GET)
 	public void project(Locale locale, Model model) {
+	}
+	
+	@RequestMapping(value = "/board", method = RequestMethod.GET)
+	public void board(Locale locale, Model model) {
+	}
+	
+	@RequestMapping("/signup")
+	public void signup(Locale locale, Model model) {
+		
+	}
+	
+	@RequestMapping(value="/signin", method = RequestMethod.POST)
+	public String signin(Locale locale, Model model) throws Exception{
+		
+		return "redirect:/";
 	}
 }
