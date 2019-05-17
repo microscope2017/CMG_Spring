@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
+<%@ page session="true" %>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
@@ -54,7 +54,7 @@
   	<div data-layout="_r" class="MOD_HEADER3_SocialBar">
     	<div class="MOD_HEADER3_SocialIcons"></div>
     	<c:choose>
-    		<c:when test = "${userID eq null}">
+    		<c:when test = "${sessionScope.userID eq null}">
 	    		<form role="form" method="post">
 		  		<div class="MOD_HEADER3_Contact">
 			    <div class="textbox">
@@ -74,7 +74,7 @@
     			<form action="logout" method="post">
 		  		<div class="MOD_HEADER3_Contact">
 			    <div class="textbox">
-					    ${userID}님을 환영합니다!
+					    ${sessionScope.userID}
 				</div>
 				<button type="submit" class="btnup" >LOGOUT</button>
 			    </div>

@@ -5,7 +5,7 @@
     <div data-layout="de10">
       <h1>Hero Area</h1>
       <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h3>
-      <a href="/resume" class="btn">${sessionScope.userID} Read more</a>
+      <a href="/resume" class="btn">Read more</a>
     </div>
   </div>
 </section>

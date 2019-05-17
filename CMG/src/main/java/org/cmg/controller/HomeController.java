@@ -29,6 +29,7 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(HttpSession session, Model model) {
 		logger.info("index........");
+		session.invalidate();
 		return "/index";
 	}
 	
@@ -67,7 +68,7 @@ public class HomeController {
 		mav.addObject("msg", str);
 		if(str.equals("LoginSuccess"))  {
 			session.setAttribute("userID", memberVO.getM_email());
-			mav.addObject("userID", memberVO.getM_email());
+			//mav.addObject("userID", memberVO.getM_email());
 		}
 		return mav;
 	}
