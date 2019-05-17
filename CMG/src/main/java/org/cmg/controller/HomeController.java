@@ -45,10 +45,6 @@ public class HomeController {
 	public void project(Locale locale, Model model) {
 	}
 	
-	@RequestMapping(value = "/board", method = RequestMethod.GET)
-	public void board(Locale locale, Model model) {
-	}
-	
 	//회원가입
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
 	public void signupGET(Locale locale, Model model) {}

@@ -6,10 +6,10 @@
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>CMG - Spring Web</title>
+	<title>CMG|Spring Web</title>
 
-	<link rel="stylesheet" href="resources/css/style.min.css">
-	<link rel="stylesheet" href="resources/css/modules.css">
+	<link rel="stylesheet" href="/resources/css/style.min.css">
+	<link rel="stylesheet" href="/resources/css/modules.css">
 
 	<!-- Canonical URL usage -->
 	<link rel="canonical" href="https://aperitif.io/">
@@ -117,7 +117,7 @@
           </ul>
         </li>
         <li>
-          <a href="/board" data-theme="_bgp">게시판</a>
+          <a href="board/board" data-theme="_bgp">게시판</a>
         </li>
       </ul>
     </nav>

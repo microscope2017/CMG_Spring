@@ -25,7 +25,7 @@ public class MemberDAOImpl implements MemberDAO{
 		if(b==0) return "NotExist";//회원 존재여부
 		
 		MemberVO vo = session.selectOne(namespace+".login", memberVO);
-		if(vo.getM_pw().equals(memberVO.getM_pw())) return "LoginSuccess";
+		if(vo.getM_pw().equals(memberVO.getM_pw())) return "LoginSuccess";//입력한 회원정보 검사
 		else return "LoginFail";
 	}
 
