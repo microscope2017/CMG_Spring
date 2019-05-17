@@ -1,8 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-   
-<!DOCTYPE html>
+
 <html>
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
@@ -54,20 +53,34 @@
   <div class="MOD_HEADER3_SocialBarContainer">
   	<div data-layout="_r" class="MOD_HEADER3_SocialBar">
     	<div class="MOD_HEADER3_SocialIcons"></div>
-    	<form role="form" action="signin" method="post">
-  		<div class="MOD_HEADER3_Contact">
-	    <div class="textbox">
-			    <i class="fas fa-user"></i>
-			    <input name='m_email' type="text" placeholder="Username">
-		</div>
-		<div class="textbox">
-			    <i class="fas fa-lock"></i>
-			    <input name='m_pw' type="password" placeholder="Password">
-		</div>
-		<button class="btnin" type = "submit">SIGN IN</button>
-		<button type="button" class="btnup" onclick="location.href='/signup'">SIGN UP</button>
-	    </div>
-	    </form>
+    	<c:choose>
+    		<c:when test = "${userID eq null}">
+	    		<form role="form" method="post">
+		  		<div class="MOD_HEADER3_Contact">
+			    <div class="textbox">
+					    <i class="fas fa-user"></i>
+					    <input name='m_email' type="text" placeholder="Username">
+				</div>
+				<div class="textbox">
+					    <i class="fas fa-lock"></i>
+					    <input name='m_pw' type="password" placeholder="Password">
+				</div>
+				<button class="btnin" type = "submit">SIGN IN</button>
+				<button type="button" class="btnup" onclick="location.href='/signup'">SIGN UP</button>
+			    </div>
+			    </form>
+    		</c:when>
+    		<c:otherwise>
+    			<form action="logout" method="post">
+		  		<div class="MOD_HEADER3_Contact">
+			    <div class="textbox">
+					    ${userID}님을 환영합니다!
+				</div>
+				<button type="submit" class="btnup" >LOGOUT</button>
+			    </div>
+			    </form>
+    		</c:otherwise>
+    	</c:choose>
     </div>
   </div>
   <div data-layout="_r">

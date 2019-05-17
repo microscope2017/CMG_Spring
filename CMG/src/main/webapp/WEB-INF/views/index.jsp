@@ -5,7 +5,7 @@
     <div data-layout="de10">
       <h1>Hero Area</h1>
       <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h3>
-      <a href="/resume" class="btn">Read more</a>
+      <a href="/resume" class="btn">${sessionScope.userID} Read more</a>
     </div>
   </div>
 </section>
@@ -14,9 +14,11 @@
 	if(result == 'REGISTERED'){
 		alert("회원가입을 축하합니다.");
 	}else if(result == 'LoginSuccess'){
-		alert("로그인 성공.")
+		alert("로그인 성공.");
 	}else if(result == 'LoginFail'){
-		alert("비밀번호가 일치하지 않습니다.")
+		alert("비밀번호가 일치하지 않습니다.");
+	}else if(result == 'NotExist'){
+		alert("존재하지 않는 회원입니다.");
 	}
 </script>
 <%@ include file="./include/footer.jsp" %>

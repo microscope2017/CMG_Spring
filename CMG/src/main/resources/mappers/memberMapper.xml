@@ -6,7 +6,12 @@
 <insert id = "register">
 insert into member values(seq_member_num.nextval, #{m_email}, #{m_pw})
 </insert>
+
 <select id="login" resultType="org.cmg.dto.MemberVO">
-select m_pw from member where m_email = #{m_email}
+select m_pw, m_email from member where m_email = #{m_email}
+</select>
+
+<select id="isexist" resultType="int">
+select count(m_email) from member where m_email = #{m_email}
 </select>
 </mapper>

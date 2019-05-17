@@ -9,3 +9,4 @@
             <typeAlias type="org.cmg.dto.ReplyVO" alias="replyVO"/>
         </typeAliases>
 	</configuration>
+	

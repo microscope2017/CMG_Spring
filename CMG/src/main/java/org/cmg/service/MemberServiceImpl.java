@@ -1,6 +1,7 @@
 package org.cmg.service;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.cmg.dao.MemberDAO;
 import org.cmg.dto.MemberVO;
@@ -16,8 +17,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	@Override
-	public String login(String pw) throws Exception {
-		return memberDAO.login(pw).getM_pw();
+	public String login(MemberVO memberVO, HttpSession httpSession) throws Exception {
+		String str = memberDAO.login(memberVO);
+		return str;
 	}
-
 }

@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.Locale;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.cmg.dto.MemberVO;
 import org.cmg.service.MemberService;
@@ -15,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
@@ -25,7 +27,7 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	public String home(HttpSession session, Model model) {
 		logger.info("index........");
 		return "/index";
 	}
@@ -57,10 +59,22 @@ public class HomeController {
 		return "redirect:/";
 	}
 	
-	@RequestMapping(value="/signin", method = RequestMethod.POST)
-	public String signin(@RequestParam("m_pw") String pw, @RequestParam("m_email") String email, RedirectAttributes rttr) throws Exception{
-		if(pw.equals(service.login(email))) {rttr.addFlashAttribute("msg", "LoginSuccess");}
-		else rttr.addFlashAttribute("msg", "LoginFail");
+	@RequestMapping(value="/", method = RequestMethod.POST)
+	public ModelAndView signin(MemberVO memberVO, HttpSession session, RedirectAttributes rttr) throws Exception{
+		ModelAndView mav = new ModelAndView();
+		String str = service.login(memberVO, session);
+		mav.setViewName("index");
+		mav.addObject("msg", str);
+		if(str.equals("LoginSuccess"))  {
+			session.setAttribute("userID", memberVO.getM_email());
+			mav.addObject("userID", memberVO.getM_email());
+		}
+		return mav;
+	}
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.POST)
+	public String logout(HttpSession session, RedirectAttributes rttr) throws Exception{
+		session.invalidate();
 		return "redirect:/";
 	}
 }
