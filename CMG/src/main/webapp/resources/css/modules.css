@@ -207,7 +207,7 @@ body.modern header .pi {
 [data-layout=_r] {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 1rem 1rem;
 }
 [data-layout=_r] > div, [data-layout=_r] > article, [data-layout=_r] > aside {
   padding: 0 1rem 1rem 1rem;

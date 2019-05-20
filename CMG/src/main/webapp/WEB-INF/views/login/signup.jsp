@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="../include/header.jsp" %>
 <section>
-  <div data-layout="_r">
+  <div data-layout="_r"><div data-layout="al16">
     <div data-layout="de10 ec-half">
       <h3>Sign Up</h3>
       <form method="post" name="check">
@@ -20,7 +20,7 @@
         <button type="submit" class="btn">가입</button>
       </form>
     </div>
-  </div>
+  </div></div>
 </section>
 <%@ include file="../include/footer.jsp" %>
 			

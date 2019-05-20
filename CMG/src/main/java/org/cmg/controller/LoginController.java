@@ -45,9 +45,11 @@ public class LoginController {
 	public String signinPOST(MemberVO memberVO, HttpSession session, RedirectAttributes rttr) throws Exception{
 		String str = service.login(memberVO, session);
 		rttr.addFlashAttribute("msg", str);
-		if(str.equals("LoginSuccess"))
+		if(str.equals("LoginSuccess")) {
 			session.setAttribute("userID", memberVO.getM_email());
-		return "redirect:/";
+			return "redirect:/";
+		}else return "redirect:/login/signin";
+		
 	}
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.POST)

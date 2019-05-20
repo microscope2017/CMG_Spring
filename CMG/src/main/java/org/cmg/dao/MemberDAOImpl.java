@@ -22,11 +22,11 @@ public class MemberDAOImpl implements MemberDAO{
 	@Override
 	public String login(MemberVO memberVO) throws Exception {
 		int b = session.selectOne(namespace+".isexist", memberVO);
-		if(b==0) return "NotExist";//회원 존재여부
+		if(b==0) return "존재하지 않는 회원입니다.";//회원 존재여부
 		
 		MemberVO vo = session.selectOne(namespace+".login", memberVO);
 		if(vo.getM_pw().equals(memberVO.getM_pw())) return "LoginSuccess";//입력한 회원정보 검사
-		else return "LoginFail";
+		else return "비밀번호가 일치하지 않습니다.";
 	}
 
 }

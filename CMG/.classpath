@@ -25,6 +25,6 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/chlal/OneDrive/바탕 화면/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SDEDU03/Downloads/ojdbc6-12.1.0.1.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

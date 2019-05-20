@@ -11,11 +11,7 @@
 </section>
 <script>
 	var result = '${msg}';
-	if(result == 'REGISTERED') alert("회원가입을 축하합니다.");
-	else if(result == 'LoginFail') alert("비밀번호가 일치하지 않습니다.");
-	else if(result == 'NotExist') alert("존재하지 않는 회원입니다.");
-	else if(result == 'LoginSuccess') alert("로그인 성공.");
-	
+	if(result == 'REGISTERED') alert("회원가입을 축하합니다.");	
 </script>
 <%@ include file="./include/footer.jsp" %>
 			

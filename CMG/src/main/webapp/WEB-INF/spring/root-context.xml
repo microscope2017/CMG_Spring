@@ -17,7 +17,7 @@
         <property value="oracle.jdbc.driver.OracleDriver" name="driverClassName" />
         <property value="jdbc:oracle:thin:@127.0.0.1:1521:xe" name="url" />
         <property value="SYSTEM" name="username" />
-        <property value="choi03052386" name="password" />
+        <property value="ai1234" name="password" />
     </bean>
 	<bean id = "sqlSessionFactory" class = "org.mybatis.spring.SqlSessionFactoryBean">
 		<property name = "dataSource" ref = "dataSource"></property>
