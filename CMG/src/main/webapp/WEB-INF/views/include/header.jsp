@@ -55,23 +55,15 @@
     	<div class="MOD_HEADER3_SocialIcons"></div>
     	<c:choose>
     		<c:when test = "${sessionScope.userID eq null}">
-	    		<form role="form" method="post">
 		  		<div class="MOD_HEADER3_Contact">
-			    <div class="textbox">
-					    <i class="fas fa-user"></i>
-					    <input name='m_email' type="text" placeholder="Username">
-				</div>
-				<div class="textbox">
-					    <i class="fas fa-lock"></i>
-					    <input name='m_pw' type="password" placeholder="Password">
-				</div>
-				<button class="btnin" type = "submit">SIGN IN</button>
-				<button type="button" class="btnup" onclick="location.href='/signup'">SIGN UP</button>
+				<form action="/login/signin" method="get">
+				<button type="submit" class="btnin" onclick="location.href='/login/signin'">SIGN IN</button>
+				</form>
+				<button type="button" class="btnup" onclick="location.href='/login/signup'">SIGN UP</button>
 			    </div>
-			    </form>
     		</c:when>
     		<c:otherwise>
-    			<form action="logout" method="post">
+    			<form action="/login/logout" method="post">
 		  		<div class="MOD_HEADER3_Contact">
 			    <div class="textbox">
 					    ${sessionScope.userID}
@@ -117,7 +109,7 @@
           </ul>
         </li>
         <li>
-          <a href="board/board" data-theme="_bgp">게시판</a>
+          <a href="/board/board" data-theme="_bgp">게시판</a>
         </li>
       </ul>
     </nav>
