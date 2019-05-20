@@ -37,12 +37,22 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public void registerGET() throws Exception{
-	}
+	public void registerGET() throws Exception{ }
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String registerPOST(BoardVO vo, HttpSession session) throws Exception{
 		service.register(vo);
+		return "redirect:/board/boardlist";
+	}
+	
+	@RequestMapping(value = "/modify", method = RequestMethod.GET)
+	public void modifyGET(@RequestParam("b_id") int b_id, Model model) throws Exception {
+		model.addAttribute("boardVO", service.read(b_id));
+	}
+	
+	@RequestMapping(value = "/modify", method = RequestMethod.POST)
+	public String modifyPOST(BoardVO vo, HttpSession session) throws Exception{
+		service.modify(vo);
 		return "redirect:/board/boardlist";
 	}
 }

@@ -27,4 +27,9 @@ values (seq_board_id.nextval, #{b_title}, #{b_text}, #{b_writer}, sysdate, 0)
 <delete id="remove">
 delete from board where b_id = #{b_id}
 </delete>
+
+<update id="modify">
+update board set b_title=#{b_title}, b_text=#{b_text} where b_id = #{b_id}
+</update>
+
 </mapper>

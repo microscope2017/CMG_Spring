@@ -37,4 +37,9 @@ public class BoardServiceImpl implements BoardService {
 	public void register(BoardVO vo) throws Exception {
 		boardDAO.register(vo);
 	}
+
+	@Override
+	public void modify(BoardVO vo) throws Exception {
+		boardDAO.modify(vo);
+	}
 }

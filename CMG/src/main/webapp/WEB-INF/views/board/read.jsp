@@ -16,7 +16,7 @@
         </div>
       </div>
       <c:if test="${sessionScope.userID == 'microscope2017@naver.com'}">
-	    <button type="button" class="btnin" onclick="location.href='/board/modify'">수정</button>
+	    <button type="button" class="btnin" onclick="location.href='/board/modify?b_id=${boardVO.b_id}'">수정</button>
 	    <button type="button" class="btnup" onclick="location.href='/board/remove?b_id=${boardVO.b_id}'">삭제</button>
     </c:if>
     </div>

@@ -7,7 +7,7 @@
       <form role="form" method="post">
       	<input type="hidden" name='b_writer' value="${sessionScope.userID}">
 		<div class="formRow">
-          <input id="MOD_TEXTFORM_TelField" name='b_title' type="tel" placeholder="제목">
+          <input id="MOD_TEXTFORM_TelField" name='b_title' type="text" placeholder="제목">
         </div>
         <div class="formRow">
         <textarea id="MOD_TEXTFORM_MsgField" name='b_text' placeholder="내용을 입력하세요"></textarea></div>

@@ -39,4 +39,9 @@ public class BoardDAOImpl implements BoardDAO{
 		session.insert(namespace + ".register", vo);
 	}
 
+	@Override
+	public void modify(BoardVO vo) throws Exception {
+		session.update(namespace+".modify", vo);
+	}
+
 }

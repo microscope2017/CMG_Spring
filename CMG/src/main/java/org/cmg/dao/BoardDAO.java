@@ -10,4 +10,5 @@ public interface BoardDAO {
 	public void cntup(int b_id) throws Exception;
 	public void remove(int b_id) throws Exception;
 	public void register(BoardVO vo) throws Exception;
+	public void modify(BoardVO vo) throws Exception;
 }
