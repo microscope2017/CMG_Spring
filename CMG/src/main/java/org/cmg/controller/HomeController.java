@@ -27,10 +27,9 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(HttpSession session, Model model) {
-		logger.info("index........");
-		session.invalidate();
-		return "/index";
+	public String GEThome(HttpSession session, Model model) {
+		logger.info("index GET........");
+		return "/home";
 	}
 	
 	@RequestMapping(value = "/resume", method = RequestMethod.GET)
@@ -43,35 +42,5 @@ public class HomeController {
 	
 	@RequestMapping(value = "/project", method = RequestMethod.GET)
 	public void project(Locale locale, Model model) {
-	}
-	
-	//회원가입
-	@RequestMapping(value = "/signup", method = RequestMethod.GET)
-	public void signupGET(Locale locale, Model model) {}
-	
-	@RequestMapping(value = "/signup", method = RequestMethod.POST)
-	public String signupPOST(MemberVO vo, RedirectAttributes rttr) throws Exception{
-		service.register(vo);
-		rttr.addFlashAttribute("msg", "REGISTERED");
-		return "redirect:/";
-	}
-	
-	@RequestMapping(value="/", method = RequestMethod.POST)
-	public ModelAndView signin(MemberVO memberVO, HttpSession session, RedirectAttributes rttr) throws Exception{
-		ModelAndView mav = new ModelAndView();
-		String str = service.login(memberVO, session);
-		mav.setViewName("index");
-		mav.addObject("msg", str);
-		if(str.equals("LoginSuccess"))  {
-			session.setAttribute("userID", memberVO.getM_email());
-			//mav.addObject("userID", memberVO.getM_email());
-		}
-		return mav;
-	}
-	
-	@RequestMapping(value = "/logout", method = RequestMethod.POST)
-	public String logout(HttpSession session, RedirectAttributes rttr) throws Exception{
-		session.invalidate();
-		return "redirect:/";
 	}
 }

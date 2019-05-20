@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ include file="./include/header.jsp" %>
+<%@ include file="../include/header.jsp" %>
 <section>
   <div data-layout="_r">
     <div data-layout="de10 ec-half">
       <h3>Sign Up</h3>
-      <form method="post" name="check"">
+      <form method="post" name="check">
         <div class="formRow">
           <label for="MOD_TEXTFORM_EmailField">Email </label>
           <input name='m_email' id="MOD_TEXTFORM_EmailField" type="text">
@@ -22,5 +22,5 @@
     </div>
   </div>
 </section>
-<%@ include file="./include/footer.jsp" %>
+<%@ include file="../include/footer.jsp" %>
 			
