@@ -31,9 +31,15 @@ r_time char(5)
 게시판 localhost/board  
   
 ###View  
+-main 
 메인 index.jsp  
 이력서 resume.jsp  
 자기소개서 introduce.jsp  
 프로젝트 project.jsp  
-게시판 list.jsp  
+  
+-login  
 회원가입 signup.jsp  
+  
+-board  
+게시판 list.jsp  
+
