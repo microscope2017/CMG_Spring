@@ -45,4 +45,9 @@ public class BoardDAOImpl implements BoardDAO{
 		session.update(namespace+".modify", vo);
 	}
 
+	@Override
+	public int count() throws Exception {
+		return session.selectOne(namespace + ".count");
+	}
+
 }

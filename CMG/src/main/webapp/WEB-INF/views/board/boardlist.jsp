@@ -40,7 +40,19 @@
 						</c:forEach>
 					</table>
 				</div>
-				 
+				 <div class="MOD_BLOGROLL1_Pagination">
+			       <ul>
+			       	  <c:if test="${pagenation.pageNum > 1}">
+			          	<li><a href="/board/boardlist?page=${pagenation.pageNum-1}">Previous</a></li>
+			          </c:if>
+			          <c:forEach var="i" begin="${pagenation.startPage}" end="${pagenation.endPage}" step="1">
+			          	<li><a href="/board/boardlist?page=${i}">${i}</a></li>
+			          </c:forEach>
+			          <c:if test="${pagenation.pageNum < pagenation.pageCnt}">
+			          	<li><a href="/board/boardlist?page=${pagenation.pageNum+1}">Next</a></li>
+			       	  </c:if>
+			       </ul>
+			    </div>
 			</div>
 		</div><!--  / .col(left) -->
 	</div><!--  /.row -->

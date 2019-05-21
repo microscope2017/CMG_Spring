@@ -43,4 +43,9 @@ public class BoardServiceImpl implements BoardService {
 	public void modify(BoardVO vo) throws Exception {
 		boardDAO.modify(vo);
 	}
+
+	@Override
+	public int count() throws Exception {
+		return boardDAO.count();
+	}
 }

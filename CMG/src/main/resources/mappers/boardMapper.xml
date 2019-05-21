@@ -9,10 +9,14 @@ select b_id, b_title, b_writer, b_date, b_cnt
   from(
         SELECT ROWNUM AS RNUM, A.*
         FROM board A
-        WHERE ROWNUM <= (select count(*) from board) - (#{pageNum} * 5)
+        WHERE ROWNUM <= (select count(*) from board) - ((#{pageNum} - 1) * 5)
       )
- WHERE RNUM > (select count(*) from board) - (#{pageNum} * 5) - 5 order by b_id desc
+ WHERE RNUM > (select count(*) from board) - ((#{pageNum} - 1) * 5) - 5 order by b_id desc
 ]]>
+</select>
+
+<select id="count" resultType="int">
+select count(*) from board
 </select>
 
 <select id="read" resultType="boardVO">
