@@ -113,7 +113,7 @@
           </ul>
         </li>
         <li>
-          <a href="/board/boardlist?page=1" data-theme="_bgp">게시판</a>
+          <a href="/board/boardlist?search=&page=1" data-theme="_bgp">게시판</a>
         </li>
       </ul>
     </nav>

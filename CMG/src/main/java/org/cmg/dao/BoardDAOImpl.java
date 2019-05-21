@@ -46,8 +46,8 @@ public class BoardDAOImpl implements BoardDAO{
 	}
 
 	@Override
-	public int count() throws Exception {
-		return session.selectOne(namespace + ".count");
+	public int count(String keyword) throws Exception {
+		return session.selectOne(namespace + ".count", keyword);
 	}
 
 }

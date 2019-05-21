@@ -19,9 +19,11 @@ public class BoardController {
 	private BoardService service;
 	
 	@RequestMapping(value = "/boardlist", method = RequestMethod.GET)
-	public void boardlist(@RequestParam("page") int page, Model model) throws Exception {
-		int pagecnt = service.count();
-		Pagenation p = new Pagenation(page, pagecnt%5 == 0?pagecnt/5:pagecnt/5+1);
+	public void boardlist(@RequestParam("page") int page, @RequestParam("search") String search, Model model) throws Exception {
+		int pagecnt = service.count(search);
+		if(pagecnt<5) pagecnt = 1;
+		else pagecnt = pagecnt%5 == 0?pagecnt/5:pagecnt/5+1;
+		Pagenation p = new Pagenation(page, pagecnt, search);
 		
 		model.addAttribute("list", service.listAll(p));
 		model.addAttribute("pagenation", p);
@@ -36,7 +38,7 @@ public class BoardController {
 	@RequestMapping(value = "/remove", method = RequestMethod.GET)
 	public String remove(@RequestParam("b_id") int b_id) throws Exception{
 		service.remove(b_id);
-		return "redirect:/board/boardlist?page=1";
+		return "redirect:/board/boardlist?search=&page=1";
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
@@ -45,7 +47,7 @@ public class BoardController {
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String registerPOST(BoardVO vo, HttpSession session) throws Exception{
 		service.register(vo);
-		return "redirect:/board/boardlist?page=1";
+		return "redirect:/board/boardlist?search=&page=1";
 	}
 	
 	@RequestMapping(value = "/modify", method = RequestMethod.GET)

@@ -40,16 +40,23 @@
 						</c:forEach>
 					</table>
 				</div>
+				<form>
+			        <div class="formRow">
+					  <input name='search' id="MOD_TEXTFORM_EmailField" type="text">
+					  <input name='page' type="hidden" value=1>
+					  <button type="submit" class="btn">검색</button>
+					</div>
+		      	</form>
 				 <div class="MOD_BLOGROLL1_Pagination">
 			       <ul>
 			       	  <c:if test="${pagenation.pageNum > 1}">
-			          	<li><a href="/board/boardlist?page=${pagenation.pageNum-1}">Previous</a></li>
+			          	<li><a href="/board/boardlist?search=${pagenation.keyword}&page=${pagenation.pageNum-1}">Previous</a></li>
 			          </c:if>
 			          <c:forEach var="i" begin="${pagenation.startPage}" end="${pagenation.endPage}" step="1">
-			          	<li><a href="/board/boardlist?page=${i}">${i}</a></li>
+			          	<li><a href="/board/boardlist?search=${pagenation.keyword}&page=${i}">${i}</a></li>
 			          </c:forEach>
 			          <c:if test="${pagenation.pageNum < pagenation.pageCnt}">
-			          	<li><a href="/board/boardlist?page=${pagenation.pageNum+1}">Next</a></li>
+			          	<li><a href="/board/boardlist?search=${pagenation.keyword}&page=${pagenation.pageNum+1}">Next</a></li>
 			       	  </c:if>
 			       </ul>
 			    </div>

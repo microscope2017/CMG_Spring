@@ -5,19 +5,34 @@
 <mapper namespace="org.cmg.mapper.boardMapper">
 <select id="listAll" resultType="boardVO">
 <![CDATA[
-select b_id, b_title, b_writer, b_date, b_cnt
-  from(
+select *
+from(
         SELECT ROWNUM AS RNUM, A.*
         FROM board A
-        WHERE ROWNUM <= (select count(*) from board) - ((#{pageNum} - 1) * 5)
-      )
- WHERE RNUM > (select count(*) from board) - ((#{pageNum} - 1) * 5) - 5 order by b_id desc
-]]>
+        WHERE (
+			b_title like '%'||#{keyword}||'%' or
+			b_text like '%'||#{keyword}||'%' or
+			b_writer like '%'||#{keyword}||'%') 
+			and ROWNUM <= (]]><include refid="searchcnt"></include><![CDATA[)- ((#{pageNum} - 1) * 5)
+)
+WHERE ( 
+		b_title like '%'||#{keyword}||'%' or
+		b_text like '%'||#{keyword}||'%' or
+		b_writer like '%'||#{keyword}||'%') 
+		and RNUM > (]]><include refid="searchcnt"></include><![CDATA[) - ((#{pageNum} - 1) * 5) - 5
+order by b_id desc ]]>
 </select>
 
 <select id="count" resultType="int">
-select count(*) from board
+<include refid="searchcnt"></include>
 </select>
+
+<sql id="searchcnt">
+select count(*) from board where
+(b_title like '%'||#{keyword}||'%' or
+b_text like '%'||#{keyword}||'%' or
+b_writer like '%'||#{keyword}||'%')
+</sql>
 
 <select id="read" resultType="boardVO">
 select * 

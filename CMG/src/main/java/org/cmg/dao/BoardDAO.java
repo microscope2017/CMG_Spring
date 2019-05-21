@@ -12,5 +12,5 @@ public interface BoardDAO {
 	public void remove(int b_id) throws Exception;
 	public void register(BoardVO vo) throws Exception;
 	public void modify(BoardVO vo) throws Exception;
-	public int count() throws Exception;
+	public int count(String search) throws Exception;
 }

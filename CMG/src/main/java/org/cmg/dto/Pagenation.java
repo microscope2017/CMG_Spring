@@ -5,22 +5,26 @@ public class Pagenation {
 	private int startPage;
 	private int endPage;
 	private int pageCnt;
+	private String keyword;
 	
-	public Pagenation(int pageNum, int pageCnt) {
+	public Pagenation(int pageNum, int pageCnt, String keyword) {
 		this.setPageCnt(pageCnt);
+		this.setKeyword(keyword);
 		
 		if(pageNum <= 0) this.pageNum = 1; // page가 음수로 내려가지 않도록 처리
 		else this.pageNum = pageNum;
 		
 		if(pageNum<3) {
 			startPage = 1;
-			endPage = 5;
+			if(pageCnt<5) endPage = pageCnt;
+			else endPage = 5;
 		} else if(pageNum > pageCnt - 3){
 			startPage = pageNum - 2;
 			endPage = pageCnt;
 		}else { // 현재 페이지를 기준으로 좌우 두개씩 표시
 			startPage = pageNum - 2;
-			endPage = pageNum + 2;
+			if(pageCnt<5) endPage = pageCnt;
+			else endPage = pageNum + 2;
 		}
 	}
 	
@@ -32,4 +36,6 @@ public class Pagenation {
 	public void setEndPage(int endPage) { this.endPage = endPage; }
 	public int getPageCnt() { return pageCnt; }
 	public void setPageCnt(int pageCnt) { this.pageCnt = pageCnt; }
+	public String getKeyword() { return keyword; }
+	public void setKeyword(String keyword) { this.keyword = keyword; }
 }
