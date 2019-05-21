@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.cmg.dto.BoardVO;
+import org.cmg.dto.Pagenation;
 import org.springframework.stereotype.Repository;
 @Repository
 public class BoardDAOImpl implements BoardDAO{
@@ -15,8 +16,8 @@ public class BoardDAOImpl implements BoardDAO{
 	private static String namespace = "org.cmg.mapper.boardMapper";
 
 	@Override
-	public List<BoardVO> listAll() throws Exception {
-		return session.selectList(namespace + ".listAll");
+	public List<BoardVO> listAll(Pagenation page) throws Exception {
+		return session.selectList(namespace + ".listAll", page);
 	}
 
 	@Override

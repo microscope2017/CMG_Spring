@@ -4,9 +4,15 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.cmg.mapper.boardMapper">
 <select id="listAll" resultType="boardVO">
+<![CDATA[
 select b_id, b_title, b_writer, b_date, b_cnt
-from board 
-order by b_id desc
+  from(
+        SELECT ROWNUM AS RNUM, A.*
+        FROM board A
+        WHERE ROWNUM <= (select count(*) from board) - (#{pageNum} * 5)
+      )
+ WHERE RNUM > (select count(*) from board) - (#{pageNum} * 5) - 5 order by b_id desc
+]]>
 </select>
 
 <select id="read" resultType="boardVO">

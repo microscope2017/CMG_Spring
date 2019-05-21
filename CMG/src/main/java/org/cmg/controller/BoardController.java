@@ -1,11 +1,10 @@
 package org.cmg.controller;
 
-import java.util.Locale;
-
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.cmg.dto.BoardVO;
+import org.cmg.dto.Pagenation;
 import org.cmg.service.BoardService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,8 +19,8 @@ public class BoardController {
 	private BoardService service;
 	
 	@RequestMapping(value = "/boardlist", method = RequestMethod.GET)
-	public void boardlist(Locale locale, Model model) throws Exception {
-		model.addAttribute("list", service.listAll());
+	public void boardlist(@RequestParam("page") int page, Model model) throws Exception {
+		model.addAttribute("list", service.listAll(new Pagenation(page)));
 	}
 	
 	@RequestMapping(value = "/read", method = RequestMethod.GET)

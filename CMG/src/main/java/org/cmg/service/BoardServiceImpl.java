@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.cmg.dao.BoardDAO;
 import org.cmg.dto.BoardVO;
+import org.cmg.dto.Pagenation;
 import org.springframework.stereotype.Service;
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -14,8 +15,8 @@ public class BoardServiceImpl implements BoardService {
 	private BoardDAO boardDAO;
 
 	@Override
-	public List<BoardVO> listAll() throws Exception {
-		return boardDAO.listAll();
+	public List<BoardVO> listAll(Pagenation page) throws Exception {
+		return boardDAO.listAll(page);
 	}
 
 	@Override

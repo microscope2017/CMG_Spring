@@ -9,7 +9,6 @@
 			<!-- general form elements -->
 			<div class="box">
 				<div class="box-header with-border">
-					<h3 class="box-title">LIST ALL PAGE 
 					<c:choose>
 						<c:when test = "${sessionScope.userID eq null}">
 							<h5>로그인시 게시물 작성이 가능합니다.</h5>
@@ -19,7 +18,7 @@
 							</button>
 						</c:otherwise>
 					</c:choose>
-					</h3>
+					<p></p>
 				</div>
 				<div>
 					<table class = "table table-bordered">
@@ -41,6 +40,7 @@
 						</c:forEach>
 					</table>
 				</div>
+				 
 			</div>
 		</div><!--  / .col(left) -->
 	</div><!--  /.row -->
