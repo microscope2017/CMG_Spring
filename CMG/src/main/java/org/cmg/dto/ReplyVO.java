@@ -6,7 +6,6 @@ public class ReplyVO {
 	private String r_text;
 	private String r_writer;
 	private String r_date;
-	private String r_time;
 	
 	public int getR_id() { return r_id; }
 	public void setR_id(int r_id) { this.r_id = r_id; }
@@ -18,8 +17,6 @@ public class ReplyVO {
 	public void setR_writer(String r_writer) { this.r_writer = r_writer; }
 	public String getR_date() { return r_date; }
 	public void setR_date(String r_date) { this.r_date = r_date; }
-	public String getR_time() { return r_time; }
-	public void setR_time(String r_time) { this.r_time = r_time; }
 	
 	@Override
 	public String toString() {

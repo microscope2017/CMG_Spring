@@ -13,7 +13,7 @@
 </footer>
 
 
-<script src="resources/js/index.js"></script>
+<script src="/resources/js/index.js"></script>
 </body>
 
 </html>

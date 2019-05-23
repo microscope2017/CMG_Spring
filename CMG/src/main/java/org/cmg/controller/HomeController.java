@@ -18,7 +18,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+/*
+ Server OS : Windows10
 
+Language : JAVA 1.8
+
+Framework : Spring 4.3.7
+
+WAS Server : Tomcat 8.5
+
+build tool : maven 4.0.0
+
+DB : Oracle 11g
+
+ORM : mybatis 3.4.6
+ */
 
 @Controller
 public class HomeController {
