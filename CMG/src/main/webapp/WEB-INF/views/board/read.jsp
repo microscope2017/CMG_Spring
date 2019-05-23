@@ -32,15 +32,45 @@
     </c:if>
     <table id="replyall">
     </table>
-    </div>
+    <div class="MOD_BLOGROLL1_Pagination">
+		<ul id="replypage"></ul>
+	</div>
+   </div>
    </div>
 </section>
 <script src="/resources/jquery-3.4.1.js"></script>
 <script>
-	$(document).ready(getReplyList());
-
-	function getReplyList(){
-		$.getJSON("/reply/show"+"?b_id=${boardVO.b_id}", function(data){
+	var page_glob = null;
+	$(document).ready(getReplyList(1));
+	$(document).ready(paging(1));
+	
+	function paging(page){
+		$.getJSON("/reply/page?page="+page+"&b_id=${boardVO.b_id}", function(data){
+			var str = "";
+			$(data).each(
+				function(){
+					var pagenum = parseInt(this.pageNum);
+					var pagecnt = parseInt(this.pageCnt);
+					var start = parseInt(this.startPage);
+					var end = parseInt(this.endPage);
+					if(pagenum > 1){
+						str+="<li><a onclick=\"getReplyList("+(pagenum-1)+")\">Previous</a></li>";
+					}
+					for(var i = start; i <= end; i++){
+						str+="<li><a onclick=\"getReplyList("+i+")\">"+i+"</a></li>";
+					}
+					if(pagenum < pagecnt){
+						str+="<li><a onclick=\"getReplyList("+(pagenum+1)+")\">Next</a></li>";
+					}
+			});
+			$("#replypage").html(str);
+		});
+	}
+	
+	function getReplyList(page){
+		page_glob = page;
+		paging(page);
+		$.getJSON("/reply/show"+"?b_id=${boardVO.b_id}&page="+page, function(data){
 			var str = "";
 			$(data).each(
 				function(){
@@ -69,7 +99,7 @@
 				"X-HTTP-Method-Override" : "DELETE"
 			},
 			dataType : "text",
-			success : function(){ getReplyList(); }
+			success : function(data){ getReplyList(page_glob); }
 		});
 	}
 	
@@ -90,7 +120,7 @@
 				r_text : r_text,
 				b_id : b_id
 			}),
-			success : function(){ getReplyList(); }
+			success : function(){ getReplyList(1); }
 		});
 	});
 </script>

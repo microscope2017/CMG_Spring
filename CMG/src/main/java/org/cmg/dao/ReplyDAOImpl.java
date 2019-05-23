@@ -27,13 +27,13 @@ public class ReplyDAOImpl implements ReplyDAO{
 	}
 
 	@Override
-	public List<ReplyVO> show(int b_id) throws Exception {
-		return session.selectList(namespace + ".show", b_id);
+	public List<ReplyVO> show(Pagenation p) throws Exception {
+		return session.selectList(namespace + ".show", p);
 	}
 
 	@Override
-	public int count(ReplyVO vo) throws Exception {
-		return session.selectOne(namespace + ".count", vo);
+	public int count(int b_id) throws Exception {
+		return session.selectOne(namespace + ".count", b_id);
 	}
 
 }

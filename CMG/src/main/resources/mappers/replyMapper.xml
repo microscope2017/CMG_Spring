@@ -12,10 +12,22 @@ delete from reply where r_id=#{r_id}
 </delete>
 
 <select id="show" resultType="replyVO">
-select * from reply where b_id = #{b_id} order by r_id desc
+<![CDATA[
+select * 
+from (
+	select rownum as rnum, a.*
+	from reply a
+	where(
+		rownum <= (]]><include refid="cnt"></include><![CDATA[) - ((#{pageNum} - 1) * 10)
+	)
+) 
+where RNUM > (]]><include refid="cnt"></include><![CDATA[) - ((#{pageNum} - 1) * 10) - 10
+order by b_id desc ]]>
 </select>
 
 <select id="count" resultType="int">
-select count(*) from reply where b_id = #{b_id}
+<include refid="cnt"></include>
 </select>
+
+<sql id="cnt">select count(*) from reply where b_id = #{b_id}</sql>
 </mapper>

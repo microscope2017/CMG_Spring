@@ -27,13 +27,13 @@ public class ReplyServiceImpl implements ReplyService {
 	}
 
 	@Override
-	public List<ReplyVO> show(int b_id) throws Exception {
-		return dao.show(b_id);
+	public List<ReplyVO> show(Pagenation p) throws Exception {
+		return dao.show(p);
 	}
 
 	@Override
-	public int count(ReplyVO vo) throws Exception {
-		return dao.count(vo);
+	public int count(int b_id) throws Exception {
+		return dao.count(b_id);
 	}
 
 }
