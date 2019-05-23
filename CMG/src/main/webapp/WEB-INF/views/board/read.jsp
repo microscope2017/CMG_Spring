@@ -44,14 +44,35 @@
 			var str = "";
 			$(data).each(
 				function(){
-					str+="<tr><th>"+this.r_writer+"</th></tr>"
-						+"<tr><td>"+this.r_text+"</td></tr>"
-						+"<tr><td>"+this.r_date+"</td></tr><br>";
+					var session = "${sessionScope.userID}";
+					var writer = this.r_writer;
+					if(session == writer){
+						str+="<tr><th>"+this.r_writer+"</th><th><button onclick=\"remove("+this.r_id+")\">삭제</button></th></tr>"
+							+"<tr><td>"+this.r_text+"</td></tr>"
+							+"<tr><td>"+this.r_date+"</td></tr>";
+					}else{
+						str+="<tr><th>"+this.r_writer+"</th></tr>"
+							+"<tr><td>"+this.r_text+"</td></tr>"
+							+"<tr><td>"+this.r_date+"</td></tr>";
+					}
 			});
 			$("#replyall").html(str);
 		});
 	}
-
+	
+	function remove(r_id){
+		$.ajax({
+			type : "delete",
+			url : "/reply/remove?r_id="+r_id,
+			headers : {
+				"Content-Type" : "application/json",
+				"X-HTTP-Method-Override" : "DELETE"
+			},
+			dataType : "text",
+			success : function(){ getReplyList(); }
+		});
+	}
+	
 	$("#regist").click(function(){
 		var r_writer = "${sessionScope.userID}";
 		var r_text = $("#text").val();

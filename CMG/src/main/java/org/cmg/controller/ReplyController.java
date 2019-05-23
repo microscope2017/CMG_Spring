@@ -20,16 +20,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class ReplyController {
 	@Inject
 	private ReplyService service;
-
-//	@RequestMapping(value = "/regist", method = RequestMethod.GET)
-//	public ResponseEntity<String> regist (ReplyVO vo) throws Exception{
-//		
-//		return null;
-//	}
 	
 	@RequestMapping(value = "/regist", method = RequestMethod.POST)
 	public void regist (@RequestBody ReplyVO vo) throws Exception{
 		service.regist(vo);
+	}
+	
+	@RequestMapping(value = "/remove", method = RequestMethod.DELETE)
+	public void remove(int r_id) throws Exception{
+		service.remove(r_id);
 	}
 	
 	@RequestMapping(value = "/show", method = RequestMethod.GET)

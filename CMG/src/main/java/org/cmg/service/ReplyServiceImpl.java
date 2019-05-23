@@ -22,8 +22,8 @@ public class ReplyServiceImpl implements ReplyService {
 	}
 
 	@Override
-	public void remove(ReplyVO vo) throws Exception {
-		dao.remove(vo);
+	public void remove(int r_id) throws Exception {
+		dao.remove(r_id);
 	}
 
 	@Override

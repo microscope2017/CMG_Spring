@@ -22,8 +22,8 @@ public class ReplyDAOImpl implements ReplyDAO{
 	}
 
 	@Override
-	public void remove(ReplyVO vo) throws Exception {
-		session.delete(namespace + ".remove", vo);
+	public void remove(int r_id) throws Exception {
+		session.delete(namespace + ".remove", r_id);
 	}
 
 	@Override
