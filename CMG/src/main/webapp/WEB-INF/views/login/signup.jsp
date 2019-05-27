@@ -1,26 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="../include/header.jsp" %>
-<section>
-  <div data-layout="_r"><div data-layout="al16">
-    <div data-layout="de10 ec-half">
-      <h3>Sign Up</h3>
-      <form method="post" name="check">
-        <div class="formRow">
-          <label for="MOD_TEXTFORM_EmailField">Email </label>
-          <input name='m_email' id="MOD_TEXTFORM_EmailField" type="text">
-        </div>
-        <div class="formRow">
-          <label for="MOD_TEXTFORM_TelField">Password </label>
-          <input name='m_pw' id="MOD_TEXTFORM_TelField" type="password">
-        </div>
-        <div class="formRow">
-          <label for="MOD_TEXTFORM_TelField">Password Check </label>
-          <input name='m_pw_check' id="MOD_TEXTFORM_TelField" type="password">
-        </div>
-        <button type="submit" class="btn">가입</button>
-      </form>
+<div class="container">
+<form>
+  <fieldset>
+    <legend>SIGN UP</legend>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input name='m_email' type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
-  </div></div>
-</section>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input name='m_pw' type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password Check</label>
+      <input name='m_pw_check' type="password" class="form-control" id="exampleInputPassword1" placeholder="Password Check">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </fieldset>
+</form>
+</div>
 <%@ include file="../include/footer.jsp" %>
 			

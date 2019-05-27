@@ -32,7 +32,6 @@ public class Pagenation {
 	public Pagenation(int pageNum, int pageCnt, int b_id) {
 		this.setPageCnt(pageCnt);
 		this.setB_id(b_id);
-		System.out.println(pageNum+"============");
 		if(pageNum <= 0) this.pageNum = 1; // page가 음수로 내려가지 않도록 처리
 		else this.pageNum = pageNum;
 		

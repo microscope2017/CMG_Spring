@@ -22,7 +22,7 @@ from (
 	)
 ) 
 where RNUM > (]]><include refid="cnt"></include><![CDATA[) - ((#{pageNum} - 1) * 10) - 10
-order by b_id desc ]]>
+order by r_id desc ]]>
 </select>
 
 <select id="count" resultType="int">
