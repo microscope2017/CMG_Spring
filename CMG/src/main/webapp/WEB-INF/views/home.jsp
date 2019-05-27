@@ -30,9 +30,6 @@
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
       </div>
-<script>
-	var result = '${msg}';
-	if(result == 'REGISTERED') alert("회원가입을 축하합니다.");	
-</script>
+
 <%@ include file="./include/footer.jsp" %>
 			

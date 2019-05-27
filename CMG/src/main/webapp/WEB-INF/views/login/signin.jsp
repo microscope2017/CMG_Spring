@@ -42,7 +42,10 @@
 	<script src="/resources/js/daterangepicker.js" type="text/javascript"></script>
 	<script src="/resources/js/countdowntime.js" type="text/javascript"></script>
 	<script src="/resources/js/main.js" type="text/javascript"></script>
-
+<script>
+	var result = '${msg}';
+	if(result == 'REGISTERED') alert("회원가입을 축하합니다.");
+</script>
 	
 <%@ include file="../include/footer.jsp" %>
 			

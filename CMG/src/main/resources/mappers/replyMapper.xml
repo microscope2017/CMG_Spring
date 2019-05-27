@@ -18,11 +18,11 @@ from (
 	select rownum as rnum, a.*
 	from reply a
 	where(
-		rownum <= (]]><include refid="cnt"></include><![CDATA[) - ((#{pageNum} - 1) * 10)
+		rownum <= (]]><include refid="cnt"></include><![CDATA[) - ((#{pageNum} - 1) * 10) and b_id = #{b_id}
 	)
 ) 
-where RNUM > (]]><include refid="cnt"></include><![CDATA[) - ((#{pageNum} - 1) * 10) - 10
-order by r_id desc ]]>
+where RNUM > (]]><include refid="cnt"></include><![CDATA[) - ((#{pageNum} - 1) * 10) - 10 and b_id = #{b_id}
+order by r_date desc ]]>
 </select>
 
 <select id="count" resultType="int">

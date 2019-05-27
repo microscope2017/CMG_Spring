@@ -1,7 +1,5 @@
 package org.cmg.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.Locale;
 
 import javax.inject.Inject;
@@ -15,8 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
@@ -35,7 +31,7 @@ public class LoginController {
 	public String signupPOST(MemberVO vo, RedirectAttributes rttr) throws Exception{
 		service.register(vo);
 		rttr.addFlashAttribute("msg", "REGISTERED");
-		return "redirect:/";
+		return "redirect:/login/signin";
 	}
 	
 	@RequestMapping(value="/signin", method = RequestMethod.GET)

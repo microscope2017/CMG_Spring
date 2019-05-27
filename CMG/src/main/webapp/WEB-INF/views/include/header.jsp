@@ -49,13 +49,13 @@
 				<button type="submit" class="btn btn-outline-primary" onclick="location.href='/login/signin'">SIGN IN</button>
     		</c:when>
     		<c:otherwise>
-    			<form action="/login/logout" method="post">
+    			<form>
     			<ul class="navbar-nav mr-auto">
 	    			<li class="nav-item">
 				    	 <a class="nav-link"> ${sessionScope.userID} </a>
 				    </li>
 				    <li class="nav-item"> 
-				    	<button type="submit" class="btn btn-secondary" >LOGOUT</button>
+				    	<button id="logout" type="submit" class="btn btn-secondary" >LOGOUT</button>
 					</li>
 				</ul>
 			    </form>
@@ -64,3 +64,19 @@
 	  </div>
 	  </div>
 	</nav>
+<script src="/resources/jquery-3.4.1.js"></script>
+<script>
+$("#logout").click(function() {
+		$.ajax({
+			type : "post",
+			url : "/login/logout",
+			headers : {
+				"Content-Type" : "application/json",
+				"X-HTTP-Method-Override" : "POST"
+			},
+			success : function() {
+				location.reload();
+			}
+		});
+	});
+</script>
