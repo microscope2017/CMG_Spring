@@ -67,16 +67,16 @@
 <script src="/resources/jquery-3.4.1.js"></script>
 <script>
 $("#logout").click(function() {
-		$.ajax({
-			type : "post",
-			url : "/login/logout",
-			headers : {
-				"Content-Type" : "application/json",
-				"X-HTTP-Method-Override" : "POST"
-			},
-			success : function() {
-				location.reload();
-			}
-		});
+	$.ajax({
+		type : "post",
+		url : "/login/logout",
+		headers : {
+			"Content-Type" : "application/json",
+			"X-HTTP-Method-Override" : "POST"
+		},
+		success : function() {
+			location.reload();
+		}
 	});
+});
 </script>

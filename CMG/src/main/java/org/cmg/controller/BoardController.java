@@ -8,9 +8,11 @@ import org.cmg.dto.Pagenation;
 import org.cmg.service.BoardService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/board")
@@ -45,9 +47,14 @@ public class BoardController {
 	public void registerGET() throws Exception{ }
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String registerPOST(BoardVO vo, HttpSession session) throws Exception{
-		service.register(vo);
-		return "redirect:/board/boardlist?search=&page=1";
+	public String registerPOST(BoardVO vo, RedirectAttributes rttr) throws Exception{
+		if(vo.getB_writer().equals("")) {
+			rttr.addFlashAttribute("msg", "session_end");
+			return "redirect:/login/signin";
+		}else {
+			service.register(vo); 
+			return "redirect:/board/boardlist?search=&page=1";
+		}		
 	}
 	
 	@RequestMapping(value = "/modify", method = RequestMethod.GET)

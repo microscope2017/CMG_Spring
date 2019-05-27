@@ -6,12 +6,12 @@
     <legend>게시물 등록</legend>
     <input type="hidden" name='b_writer' value="${sessionScope.userID}">
     <div class="form-group">
-      <input name='b_title' type="text" class="form-control" id="exampleInputEmail1" placeholder="제목">
+      <input name="b_title" type="text" class="form-control" id="exampleInputEmail1" placeholder="제목">
     </div>
     <div class="form-group">
-      <textarea name='b_text' class="form-control" id="exampleTextarea" rows="10" placeholder="내용을 입력하세요"></textarea>
+      <textarea name="b_text" class="form-control" id="exampleTextarea" rows="10" placeholder="내용을 입력하세요"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">등록</button>
+    <button name="regist" type="submit" class="btn btn-primary">등록</button>
     </fieldset>
 </form>
 </div>

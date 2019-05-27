@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="../include/header.jsp" %>
 
-<div class="limiter">
+	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
 				<form method="post" class="login100-form validate-form flex-sb flex-w">
@@ -31,7 +31,6 @@
 			</div>
 		</div>
 	</div>
-	<div id="dropDownSelect1"></div>
 	
 	<script src="/resources/jquery-3.4.1.js" type="text/javascript"></script>
 	<script src="/resources/js/animsition.min.js" type="text/javascript"></script>
@@ -45,6 +44,7 @@
 <script>
 	var result = '${msg}';
 	if(result == 'REGISTERED') alert("회원가입을 축하합니다.");
+	else if(result == 'session_end') alert("세션이 만료되었습니다. 다시 로그인 해주세요.");
 </script>
 	
 <%@ include file="../include/footer.jsp" %>
