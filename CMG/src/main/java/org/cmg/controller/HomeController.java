@@ -5,6 +5,9 @@ import java.util.Date;
 import java.util.Locale;
 
 import javax.inject.Inject;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.cmg.dto.MemberVO;
@@ -41,7 +44,7 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String GEThome(HttpSession session, Model model) {
+	public String GEThome(HttpSession session, Model model, HttpServletRequest request) {
 		logger.info("index GET........");
 		return "/home";
 	}

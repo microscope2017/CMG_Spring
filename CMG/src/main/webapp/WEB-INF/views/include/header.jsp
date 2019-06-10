@@ -43,7 +43,6 @@
 	        <a class="nav-link" href="/board/boardlist?search=&page=1">게시판</a>
 	      </li>
 	    </ul>
-	    
 	    <c:choose>
     		<c:when test = "${sessionScope.userID eq null}">
 				<button type="submit" class="btn btn-outline-primary" onclick="location.href='/login/signin'">SIGN IN</button>
@@ -66,6 +65,22 @@
 	</nav>
 <script src="/resources/jquery-3.4.1.js"></script>
 <script>
+$(document).ready(function(){
+	var session = "${sessionScope.userID}";
+	if(session == ""){
+		$.ajax({
+			type : "post",
+			url : "/reply/auto",
+			headers : {
+				"Content-Type" : "application/json",
+				"X-HTTP-Method-Override" : "POST"
+			},
+			success : function(result) {
+				if(result == "cookie") location.reload();
+			}
+		});
+	}
+});
 $("#logout").click(function() {
 	$.ajax({
 		type : "post",

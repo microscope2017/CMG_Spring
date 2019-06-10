@@ -3,6 +3,9 @@ package org.cmg.controller;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.cmg.dto.BoardVO;
 import org.cmg.dto.Pagenation;
@@ -48,6 +51,22 @@ public class ReplyController {
 		Pagenation p = new Pagenation(page, 0, b_id);
 		entity = new ResponseEntity<>(service.show(p), HttpStatus.OK);
 		return entity;
+	}
+	
+	@RequestMapping(value = "/auto", method = RequestMethod.POST)
+	public String auto (HttpSession session, HttpServletRequest request) throws Exception{
+		Cookie[] c = request.getCookies();
+		if(c.length>0) {
+			for(Cookie cookie : c) {
+				if(cookie.getName().equals("autoLoginID")) {
+					if(!cookie.getValue().equals("")) {
+						session.setAttribute("userID", cookie.getValue());
+						return "cookie";
+					}
+				}
+			}
+		}
+		return "nocookie";
 	}
 
 }

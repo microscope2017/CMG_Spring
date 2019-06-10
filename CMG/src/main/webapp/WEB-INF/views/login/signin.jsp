@@ -20,6 +20,20 @@
 					</div>
 
 					<div class="flex-sb-m w-full p-b-48">
+						<div class="contact100-form-checkbox">
+							<input type="hidden" name="auto" value="notauto">
+							<input class="input-checkbox100" id="ckb1" type="checkbox" name="auto" value="auto">
+							<label class="label-checkbox100" for="ckb1">
+								Remember me
+							</label>
+						</div>
+
+						<div>
+							<a href="#" class="txt3">
+								Forgot Password?
+							</a>
+						</div>
+					
 						<div>
 							<a href="/login/signup" class="txt3"> 아직 회원이 아니세요? </a>
 						</div>
@@ -27,6 +41,7 @@
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn"> Login </button>
 					</div>
+					
 				</form>
 			</div>
 		</div>
