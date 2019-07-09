@@ -46,7 +46,7 @@ update board set b_cnt=b_cnt+1 where b_id = #{b_id}
 
 <insert id="register">
 insert into board 
-values (seq_board_id.nextval, #{b_title}, #{b_text}, #{b_writer}, sysdate, 0)
+values (seq_board_id.nextval, #{b_title}, #{b_text}, #{b_image}, #{b_writer}, sysdate, 0)
 </insert>
 
 <delete id="remove">
@@ -54,7 +54,7 @@ delete from board where b_id = #{b_id}
 </delete>
 
 <update id="modify">
-update board set b_title=#{b_title}, b_text=#{b_text} where b_id = #{b_id}
+update board set b_title=#{b_title}, b_text=#{b_text}, b_image=#{b_image} where b_id = #{b_id}
 </update>
 
 </mapper>

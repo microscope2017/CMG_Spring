@@ -9,6 +9,7 @@
 		<b>Published</b> ${boardVO.b_date} | <b>View</b> ${boardVO.b_cnt}
 	</p>
 	<br> ${boardVO.b_text}
+	<br> <img src="/resources/img/${boardVO.b_image }" width="500px">
 	<br><br>
 	<c:if test="${sessionScope.userID == boardVO.b_writer}">
 		<button type="button" class="btn btn-secondary" onclick="location.href='/board/modify?b_id=${boardVO.b_id}'">수정</button>

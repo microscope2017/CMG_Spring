@@ -1,13 +1,20 @@
 package org.cmg.service;
 
+import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.cmg.dao.BoardDAO;
 import org.cmg.dto.BoardVO;
 import org.cmg.dto.Pagenation;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 @Service
 public class BoardServiceImpl implements BoardService {
 
@@ -35,7 +42,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public void register(BoardVO vo) throws Exception {
+	public void register(BoardVO vo, HttpServletRequest req) throws Exception {
 		boardDAO.register(vo);
 	}
 
