@@ -43,8 +43,8 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "/remove", method = RequestMethod.GET)
-	public String remove(@RequestParam("b_id") int b_id) throws Exception{
-		service.remove(b_id);
+	public String remove(@RequestParam("b_id") int b_id, HttpServletRequest req) throws Exception{
+		service.remove(b_id, req);
 		return "redirect:/board/boardlist?search=&page=1";
 	}
 	
@@ -57,10 +57,13 @@ public class BoardController {
 		BoardVO vo = null;
 		MultipartRequest mr = null;
 		String photo = null;
+		System.out.println(path);
 		try {
 			mr = new MultipartRequest(req, path, 30 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
 			photo = mr.getFilesystemName("b_img");
+			System.out.println(photo);
 			photo = URLEncoder.encode(photo, "utf-8");
+			System.out.println(photo);
 			photo = photo.replace("+", " ");
 			vo = new BoardVO(mr.getParameter("b_title"), mr.getParameter("b_text"), photo, 
 						mr.getParameter("b_writer"), 0);

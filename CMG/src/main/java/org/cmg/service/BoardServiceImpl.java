@@ -1,7 +1,7 @@
 package org.cmg.service;
 
-import java.io.IOException;
-import java.net.URLEncoder;
+import java.io.File;
+import java.net.URLDecoder;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -11,10 +11,6 @@ import org.cmg.dao.BoardDAO;
 import org.cmg.dto.BoardVO;
 import org.cmg.dto.Pagenation;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 @Service
 public class BoardServiceImpl implements BoardService {
 
@@ -37,7 +33,12 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public void remove(int b_id) throws Exception {
+	public void remove(int b_id, HttpServletRequest req) throws Exception {
+		BoardVO vo = boardDAO.read(b_id);
+		String path = req.getSession().getServletContext().getRealPath("/resources/img");
+		String photo = URLDecoder.decode(vo.getB_image(), "utf-8");
+		new File(path + "/" + photo).delete();
+		
 		boardDAO.remove(b_id);
 	}
 
