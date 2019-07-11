@@ -4,7 +4,6 @@ import java.net.URLEncoder;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.cmg.dto.BoardVO;
 import org.cmg.dto.Pagenation;
@@ -52,21 +51,23 @@ public class BoardController {
 	public void registerGET() throws Exception{ }
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String registerPOST(RedirectAttributes rttr, HttpServletRequest req) throws Exception{
+	public String registerPOST(RedirectAttributes rttr, HttpServletRequest req) throws Exception{//이미지 파일 null 처리 필요
 		String path = req.getSession().getServletContext().getRealPath("/resources/img");
 		BoardVO vo = null;
 		MultipartRequest mr = null;
 		String photo = null;
-		System.out.println(path);
 		try {
 			mr = new MultipartRequest(req, path, 30 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
 			photo = mr.getFilesystemName("b_img");
-			System.out.println(photo);
-			photo = URLEncoder.encode(photo, "utf-8");
-			System.out.println(photo);
-			photo = photo.replace("+", " ");
-			vo = new BoardVO(mr.getParameter("b_title"), mr.getParameter("b_text"), photo, 
+			if(photo == null) {
+				vo = new BoardVO(mr.getParameter("b_title"), mr.getParameter("b_text"), "noImage", 
 						mr.getParameter("b_writer"), 0);
+			}else {
+				photo = URLEncoder.encode(photo, "utf-8");
+				photo = photo.replace("+", " ");
+				vo = new BoardVO(mr.getParameter("b_title"), mr.getParameter("b_text"), photo, 
+						mr.getParameter("b_writer"), 0);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
